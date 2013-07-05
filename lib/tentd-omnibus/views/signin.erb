@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="<%= asset_path("icing.css") %>" />
+
+    <title>TentD Omnibus - Sign In</title>
+  </head>
+
+  <body>
+    <div id='main-container' class='container'>
+      <div id='main' class='pull-left'>
+        <form class='form-horizontal' method='POST' action='/signin'>
+          <input type='hidden' name='_csrf' value='<%= csrf_token %>' />
+
+          <% if flash_error %>
+            <p class='alert alert-error'><%= flash_error %></p>
+          <% end %>
+
+          <div class="control-group">
+            <label class="control-label" for="username">Username</label>
+            <div class="controls">
+              <input type="text" name="username" placeholder="Username" value="<%= params[:username] %>">
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="passphrase">Passphrase</label>
+            <div class="controls">
+              <input type="password" name="passphrase" placeholder="passphrase">
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="controls">
+              <input type="submit" class='btn btn-primary' value="Sign In">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

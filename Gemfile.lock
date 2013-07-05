@@ -1,0 +1,308 @@
+GIT
+  remote: git://github.com/jvaill/sprockets.git
+  revision: 6327a13e77609991509c8cf3d3c1e571f6a4b23d
+  branch: master
+  specs:
+    sprockets (2.9.2)
+      hike (~> 1.2)
+      multi_json (~> 1.0)
+      rack (~> 1.0)
+      tilt (~> 1.1, != 1.3.0)
+
+GIT
+  remote: git://github.com/jvatic/lodash-assets.git
+  revision: 34bfb392e2407053d6cf28f76c884c6e77df34e8
+  branch: master
+  specs:
+    lodash-assets (0.0.1)
+      execjs (>= 1.2.9)
+      sprockets (>= 2.0.3)
+      tilt (>= 1.3.3)
+      yajl-ruby
+
+GIT
+  remote: git://github.com/jvatic/marbles-js.git
+  revision: 7d8a3f66a06318fa5af1e4d5f471373c13df7be5
+  branch: master
+  specs:
+    marbles-js (0.0.3)
+
+GIT
+  remote: git://github.com/tent/api-validator.git
+  revision: a9a94d50bab6ab4666284ef4cff050b4a691c46b
+  branch: master
+  specs:
+    api-validator (0.0.1)
+      json-pointer
+
+GIT
+  remote: git://github.com/tent/hawk-ruby.git
+  revision: 427d2ee50dbfe9f728f717298e42b90ebeccd69e
+  branch: master
+  specs:
+    hawk-auth (0.2.0)
+
+GIT
+  remote: git://github.com/tent/icing.git
+  revision: fde984d037393cecc78a8f867699d03511625995
+  branch: master
+  specs:
+    icing (0.0.1)
+      compass (~> 0.12.2)
+      sass
+      sprockets (~> 2.0)
+      sprockets-helpers (~> 0.2)
+      sprockets-sass (~> 0.5)
+
+GIT
+  remote: git://github.com/tent/json-pointer-ruby.git
+  revision: ade5fea30acd9c85c3886db62e83d68e3b5919bb
+  branch: master
+  specs:
+    json-pointer (0.0.2)
+
+GIT
+  remote: git://github.com/tent/marbles-tent-client-js.git
+  revision: eee2ee87710bc1904762d6bf860e493a3e10e5db
+  branch: master
+  specs:
+    marbles-tent-client-js (0.0.1)
+
+GIT
+  remote: git://github.com/tent/omniauth-tent.git
+  revision: 44055df0a940ac53d978ee1803f6134117a2f32e
+  branch: 0.3
+  specs:
+    omniauth-tent (0.2.0)
+      omniauth (~> 1.1.1)
+      tent-client
+
+GIT
+  remote: git://github.com/tent/rack-putty.git
+  revision: f5769196226018fc87a9f8dcf1eeddc05c45bd6f
+  branch: master
+  specs:
+    rack-putty (0.0.1)
+      rack-mount (~> 0.8.3)
+
+GIT
+  remote: git://github.com/tent/sequel-json.git
+  revision: 5412015d8053fc1ec85f220d1974c83436d8f379
+  branch: master
+  specs:
+    sequel-json (0.0.1)
+      sequel
+      yajl-ruby
+
+GIT
+  remote: git://github.com/tent/tent-admin.git
+  revision: 41c2c40aeae906bdf063d935f9dedc3beb04810a
+  branch: master
+  specs:
+    tent-admin (0.0.1)
+      coffee-script
+      icing
+      lodash-assets
+      marbles-js
+      marbles-tent-client-js
+      mimetype-fu
+      omniauth-tent
+      pg
+      rack-putty
+      sass
+      sequel (= 3.46)
+      sequel-json
+      sprockets (~> 2.0)
+
+GIT
+  remote: git://github.com/tent/tent-canonical-json-ruby.git
+  revision: dd0fb8488335b5e269a8f43f025621418af49198
+  branch: master
+  specs:
+    tent-canonical-json (0.0.2)
+      json-pointer
+      yajl-ruby
+
+GIT
+  remote: git://github.com/tent/tent-client-ruby.git
+  revision: 2f08bbfa05cb1a44889b5672dec19f53f3a38c2d
+  branch: 0.3
+  specs:
+    tent-client (0.2.0)
+      faraday (= 0.8.4)
+      faraday_middleware (= 0.8.8)
+      faraday_middleware-multi_json
+      hawk-auth
+      nokogiri
+      yajl-ruby
+
+GIT
+  remote: git://github.com/tent/tent-schemas.git
+  revision: 48deddffd39739603bf01ec88ff195a8503ae4cd
+  branch: master
+  specs:
+    tent-schemas (0.2.0)
+      json-schema (= 2.0.0)
+
+GIT
+  remote: git://github.com/tent/tent-status.git
+  revision: 229ffdb5ae9c212a833b1233be41e0430d951aa3
+  branch: master
+  specs:
+    tent-status (0.2.0)
+      coffee-script
+      icing
+      lodash-assets
+      marbles-js
+      marbles-tent-client-js
+      mimetype-fu
+      omniauth-tent
+      pg
+      rack-putty
+      sequel (= 3.46)
+      sequel-json
+      sprockets (~> 2.0)
+      sprockets-sass (~> 0.5)
+      tent-client
+
+GIT
+  remote: git://github.com/tent/tentd.git
+  revision: a863408bb01ac4d70a50a81df1cd62e51e950c45
+  branch: 0.3
+  specs:
+    tentd (0.2.0)
+      api-validator
+      hawk-auth
+      pg
+      rack-putty
+      sequel
+      sequel-json
+      sequel-pg_array
+      tent-canonical-json
+      tent-client
+      tent-schemas
+      yajl-ruby
+
+PATH
+  remote: .
+  specs:
+    tentd-omnibus (0.0.1)
+      bcrypt-ruby
+      mimetype-fu
+      rack-putty
+      sidekiq
+      tent-status
+      tentd (~> 0.2)
+      unicorn
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    POpen4 (0.1.4)
+      Platform (>= 0.4.0)
+      open4
+    Platform (0.4.0)
+    bcrypt-ruby (3.1.0)
+    celluloid (0.14.1)
+      timers (>= 1.0.0)
+    chunky_png (1.2.8)
+    coffee-script (2.2.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.6.3)
+    compass (0.12.2)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
+    connection_pool (1.1.0)
+    execjs (1.4.0)
+      multi_json (~> 1.0)
+    faraday (0.8.4)
+      multipart-post (~> 1.1)
+    faraday_middleware (0.8.8)
+      faraday (>= 0.7.4, < 0.9)
+    faraday_middleware-multi_json (0.0.5)
+      faraday_middleware
+      multi_json
+    fssm (0.2.10)
+    hashie (2.0.5)
+    hike (1.2.3)
+    json (1.8.0)
+    json-schema (2.0.0)
+    kgio (2.8.0)
+    mimetype-fu (0.1.2)
+    mini_portile (0.5.0)
+    multi_json (1.7.7)
+    multipart-post (1.2.0)
+    nokogiri (1.6.0)
+      mini_portile (~> 0.5.0)
+    omniauth (1.1.4)
+      hashie (>= 1.2, < 3)
+      rack
+    open4 (1.3.0)
+    pg (0.15.1)
+    rack (1.5.2)
+    rack-mount (0.8.3)
+      rack (>= 1.0.0)
+    raindrops (0.11.0)
+    rake (10.1.0)
+    redis (3.0.4)
+    redis-namespace (1.3.0)
+      redis (~> 3.0.0)
+    sass (3.2.9)
+    sequel (3.46.0)
+    sequel-pg_array (0.0.1)
+    sequel_pg (1.6.7)
+      pg (>= 0.8.0)
+      sequel (>= 3.39.0)
+    sidekiq (2.12.4)
+      celluloid (>= 0.14.1)
+      connection_pool (>= 1.0.0)
+      json
+      redis (>= 3.0)
+      redis-namespace
+    sprockets-helpers (0.9.1)
+      sprockets (~> 2.0)
+    sprockets-sass (0.9.1)
+      sprockets (~> 2.0)
+      tilt (~> 1.1)
+    tilt (1.4.1)
+    timers (1.1.0)
+    uglifier (2.1.1)
+      execjs (>= 0.3.0)
+      multi_json (~> 1.0, >= 1.0.2)
+    unicorn (4.6.3)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
+    yajl-ruby (1.1.0)
+    yui-compressor (0.9.6)
+      POpen4 (>= 0.1.4)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  api-validator!
+  hawk-auth!
+  icing!
+  json-pointer!
+  lodash-assets!
+  marbles-js!
+  marbles-tent-client-js!
+  omniauth-tent!
+  rack-putty!
+  rake
+  sequel
+  sequel-json!
+  sequel_pg
+  sprockets!
+  tent-admin!
+  tent-canonical-json!
+  tent-client!
+  tent-schemas!
+  tent-status!
+  tentd!
+  tentd-omnibus!
+  uglifier
+  yui-compressor
