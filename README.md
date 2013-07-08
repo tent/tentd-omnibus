@@ -98,6 +98,8 @@ pre-compiled and pre-authed instances of [status](http://localhost:8080/status) 
 
 See the [Getting Started with Heroku](https://devcenter.heroku.com/articles/quickstart) guide for more information.
 
+Assuming you have heroku configured, just copy and paste the following:
+
 ```shell
 heroku create --addons heroku-postgresql:dev,rediscloud:20
 heroku pg:promote $(heroku pg | head -1 | cut -f2 -d" ")
