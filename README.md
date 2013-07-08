@@ -31,7 +31,7 @@ See the [admin README](https://github.com/tent/tent-admin/blob/master/README.md)
 
 ### Booting it up
 
-Assuming you have the appropriate ENV varibles set,
+Assuming you have the appropriate ENV variables set,
 
 ```shell
 git clone git://git.github.com/tent/tentd-omnibus
