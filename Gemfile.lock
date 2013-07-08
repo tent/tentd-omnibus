@@ -70,7 +70,7 @@ GIT
 
 GIT
   remote: git://github.com/tent/omniauth-tent.git
-  revision: cc7a638f3e240e7d0cf581ecdc91b5a3a18d967a
+  revision: 03a26e96db40554d783c6d12a79054f81991afd8
   branch: master
   specs:
     omniauth-tent (0.2.0)
@@ -125,7 +125,7 @@ GIT
 
 GIT
   remote: git://github.com/tent/tent-client-ruby.git
-  revision: 2f08bbfa05cb1a44889b5672dec19f53f3a38c2d
+  revision: 367a56f44cd4f0ed64a056b7d2cfc40b5848b028
   branch: master
   specs:
     tent-client (0.2.0)
@@ -167,7 +167,7 @@ GIT
 
 GIT
   remote: git://github.com/tent/tentd.git
-  revision: 40265bda7df5e9f25625a9731b1145ac87b9dcc9
+  revision: 26d5313ca1524bbe793e9a8815501b0c3cad0933
   branch: master
   specs:
     tentd (0.2.0)
