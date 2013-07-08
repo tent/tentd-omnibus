@@ -29,7 +29,56 @@ See the [status README](https://github.com/tent/tent-status/blob/master/README.m
 
 See the [admin README](https://github.com/tent/tent-admin/blob/master/README.md) for details and additional configuration options.
 
-### Booting it up
+### Running it anywhere
+
+#### Dependencies
+
+##### Ruby
+
+This app requires a Ruby 1.9.3 or 2.0.0 environment.
+
+**OS X**
+
+[Homebrew](http://mxcl.github.io/homebrew/) is the easiest method of installing Ruby on OS X.
+
+```shell
+brew install ruby
+```
+
+If you need to switch between Ruby versions, [chruby](https://github.com/postmodern/chruby) and [ruby-install](https://github.com/postmodern/ruby-install) are well worth considering.
+
+**Ubuntu**
+
+```shell
+sudo apt-get install build-essential ruby1.9.1-full libxml2 libxml2-dev libxslt1-dev
+sudo update-alternatives --config ruby # make sure 1.9 is the default
+```
+
+##### Postgres
+
+A Postgres database is required for running [tentd](https://github.com/tent/tentd).
+
+If you use [Homebrew](), run
+
+```shell
+brew install postgresql
+```
+
+Otherwise, use [Postgres.app](http://postgresapp.com/).
+
+##### Redis
+
+[Tentd](https://github.com/tent/tentd) also requires [Redis](http://redis.io).
+
+If you use [Homebrew](), run
+
+```shell
+brew install redis
+```
+
+Otherwise see [redis.io/download](http://redis.io/download).
+
+#### Booting it up
 
 Assuming you have the appropriate ENV variables set,
 
@@ -45,7 +94,9 @@ bundle exec unicorn -p 8080
 will start an [instance of tentd](http://localhost:8080/tent) with
 pre-compiled and pre-authed instances of [status](http://localhost:8080/status) and [admin](http://localhost:8080/admin).
 
-### Heroku
+### Running on Heroku
+
+See the [Getting Started with Heroku](https://devcenter.heroku.com/articles/quickstart) guide for more information.
 
 ```shell
 heroku create --addons heroku-postgresql:dev,rediscloud:20
