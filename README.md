@@ -58,7 +58,7 @@ sudo update-alternatives --config ruby # make sure 1.9 is the default
 
 A Postgres database is required for running [tentd](https://github.com/tent/tentd).
 
-If you use [Homebrew](), run
+If you use [Homebrew](http://mxcl.github.io/homebrew/), run
 
 ```shell
 brew install postgresql
@@ -70,7 +70,7 @@ Otherwise, use [Postgres.app](http://postgresapp.com/).
 
 [Tentd](https://github.com/tent/tentd) also requires [Redis](http://redis.io).
 
-If you use [Homebrew](), run
+If you use [Homebrew](http://mxcl.github.io/homebrew/), run
 
 ```shell
 brew install redis
