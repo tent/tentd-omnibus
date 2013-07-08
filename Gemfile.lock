@@ -96,7 +96,7 @@ GIT
 
 GIT
   remote: git://github.com/tent/tent-admin.git
-  revision: f33eab0f983e8b657a7780c74c2c785e188dd2f0
+  revision: 52eba4aa15aaed31f50a93ea297734e5bc2344bb
   branch: master
   specs:
     tent-admin (0.0.1)
@@ -116,7 +116,7 @@ GIT
 
 GIT
   remote: git://github.com/tent/tent-canonical-json-ruby.git
-  revision: dd0fb8488335b5e269a8f43f025621418af49198
+  revision: a5b503362f9fa0c7da27b05d844c028b5b94dbd3
   branch: master
   specs:
     tent-canonical-json (0.0.2)
@@ -146,7 +146,7 @@ GIT
 
 GIT
   remote: git://github.com/tent/tent-status.git
-  revision: 566f2dd29ebaabadccd3485d913c9721e1dd0a60
+  revision: 39fd57982828897cac126e57beee40ed774adb68
   branch: master
   specs:
     tent-status (0.2.0)
@@ -167,7 +167,7 @@ GIT
 
 GIT
   remote: git://github.com/tent/tentd.git
-  revision: 26d5313ca1524bbe793e9a8815501b0c3cad0933
+  revision: 1b2e30f7c985d54395b703020673e6695f1bc672
   branch: master
   specs:
     tentd (0.2.0)
