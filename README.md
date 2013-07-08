@@ -78,6 +78,14 @@ brew install redis
 
 Otherwise see [redis.io/download](http://redis.io/download).
 
+##### Java
+
+Asset compilation uses [yui-compressor](https://github.com/martinvelez/yuicompressor_ruby) which depends on Java 1.5 or later.
+
+##### JavaScript Runtime
+
+Asset compilation depends on a JavaScript runtime such as node.
+
 #### Booting it up
 
 Assuming you have the appropriate ENV variables set,
