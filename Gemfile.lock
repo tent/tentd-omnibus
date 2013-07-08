@@ -110,7 +110,7 @@ GIT
       pg
       rack-putty
       sass
-      sequel (= 3.48)
+      sequel (= 3.46)
       sequel-json
       sprockets (~> 2.0)
 
@@ -159,7 +159,7 @@ GIT
       omniauth-tent
       pg
       rack-putty
-      sequel (= 3.48)
+      sequel (= 3.46)
       sequel-json
       sprockets (~> 2.0)
       sprockets-sass (~> 0.5)
@@ -176,7 +176,7 @@ GIT
       hawk-auth
       pg
       rack-putty
-      sequel (= 3.48.0)
+      sequel (= 3.46.0)
       sequel-json
       sequel-pg_array
       sequel_pg
@@ -272,7 +272,7 @@ GEM
       redis (~> 3.0.0)
     ruby-hmac (0.4.0)
     sass (3.2.9)
-    sequel (3.48.0)
+    sequel (3.46.0)
     sequel-pg_array (0.0.1)
     sequel_pg (1.6.7)
       pg (>= 0.8.0)
