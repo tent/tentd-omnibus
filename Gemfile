@@ -32,5 +32,5 @@ gem 'marbles-js', :git => 'git://github.com/jvatic/marbles-js.git', :branch => '
 
 group :assets do
   gem 'uglifier'
-  gem 'yui-compressor'
+  gem 'sprockets-rainpress'
 end
