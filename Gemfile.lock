@@ -22,7 +22,7 @@ GIT
 
 GIT
   remote: git://github.com/jvatic/marbles-js.git
-  revision: 8bfb36ecb602401ec12a7fab7f3fdb422c1f1813
+  revision: 3a51fb546e778f4dcb602da126e8de8f57c9cd73
   branch: master
   specs:
     marbles-js (0.0.3)
@@ -146,7 +146,7 @@ GIT
 
 GIT
   remote: git://github.com/tent/tent-status.git
-  revision: 05d2bce82d0606e251f5d6876ad2e1b22ab9dd38
+  revision: 23089a85e97d1c52b919e7f7fef25e8a5a541855
   branch: master
   specs:
     tent-status (0.2.0)
@@ -167,7 +167,7 @@ GIT
 
 GIT
   remote: git://github.com/tent/tentd.git
-  revision: dd2496d25ffe8122c8d249d600f39aecc6127155
+  revision: 6dc4d59cdf86a5a18f7a396e390ade6759cd2776
   branch: master
   specs:
     tentd (0.2.0)
