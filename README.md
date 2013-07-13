@@ -87,7 +87,7 @@ Asset compilation depends on a JavaScript runtime such as node.
 Assuming you have the appropriate ENV variables set,
 
 ```shell
-git clone git://git.github.com/tent/tentd-omnibus
+git clone git://github.com/tent/tentd-omnibus
 bundle
 bundle exec rake assets:precompile
 createdb tentd
