@@ -78,6 +78,7 @@ module TentD
       end
 
       auth_credentials_post = TentD::Model::Post.where(:id => app.auth_credentials_post_id).first
+      app_post ||= TentD::Model::Post.where(:id => app.post_id).first
 
       settings[:status_config] = config_json(app_post, auth_credentials_post)
     end
@@ -104,6 +105,8 @@ module TentD
       end
 
       auth_credentials_post = TentD::Model::Post.where(:id => app.auth_credentials_post_id).first
+      app_post ||= TentD::Model::Post.where(:id => app.post_id).first
+
       settings[:admin_config] = config_json(app_post, auth_credentials_post)
     end
 
