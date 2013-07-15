@@ -8,6 +8,8 @@ gem "tent-admin", :git => "git://github.com/tent/tent-admin.git", :branch => "ma
 
 gem 'rake'
 
+gem 'rack-ssl-enforcer'
+
 gem 'sequel_pg', :require => 'sequel'
 gem 'sequel', :require => false
 

@@ -24,6 +24,11 @@ session_cookie_options = {
   :secret => ENV['SESSION_SECRET'] || SecureRandom.hex
 }
 
+if ENV['RACK_ENV'] == 'production'
+  require 'rack/ssl-enforcer'
+  use Rack::SslEnforcer
+end
+
 map '/' do
   use Rack::Session::Cookie, session_cookie_options
   run TentD::Omnibus::Shared.new
