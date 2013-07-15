@@ -22,7 +22,7 @@ GIT
 
 GIT
   remote: git://github.com/jvatic/marbles-js.git
-  revision: 3a51fb546e778f4dcb602da126e8de8f57c9cd73
+  revision: 7e31ab7c91d2d2fcfb9996731ea6f166ecbf3833
   branch: master
   specs:
     marbles-js (0.0.3)
@@ -44,7 +44,7 @@ GIT
 
 GIT
   remote: git://github.com/tent/icing.git
-  revision: bfa5bde16e556d624886c293135c80a4ba05bcc5
+  revision: 8d4d925fb6260b3ae7ae6283aba441bb529c2e25
   branch: master
   specs:
     icing (0.0.1)
@@ -96,7 +96,7 @@ GIT
 
 GIT
   remote: git://github.com/tent/tent-admin.git
-  revision: 0245f3d3eceee76f5e2bdfe954068e6e5c2d6f2c
+  revision: 5d1196639d810f9167623a7e418355a1b9d49a17
   branch: master
   specs:
     tent-admin (0.0.1)
@@ -146,7 +146,7 @@ GIT
 
 GIT
   remote: git://github.com/tent/tent-status.git
-  revision: 23089a85e97d1c52b919e7f7fef25e8a5a541855
+  revision: 74a521fb2c331dc3458896fa939c04e4207cbf7d
   branch: master
   specs:
     tent-status (0.2.0)
@@ -202,7 +202,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    bcrypt-ruby (3.1.0)
+    bcrypt-ruby (3.1.1)
     builder (3.2.2)
     celluloid (0.14.1)
       timers (>= 1.0.0)
@@ -273,7 +273,7 @@ GEM
     sequel_pg (1.6.7)
       pg (>= 0.8.0)
       sequel (>= 3.39.0)
-    sidekiq (2.12.4)
+    sidekiq (2.13.0)
       celluloid (>= 0.14.1)
       connection_pool (>= 1.0.0)
       json
@@ -289,7 +289,7 @@ GEM
       tilt (~> 1.1)
     tilt (1.4.1)
     timers (1.1.0)
-    uglifier (2.1.1)
+    uglifier (2.1.2)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
     unicorn (4.6.3)
