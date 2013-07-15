@@ -79,13 +79,7 @@ module TentD
 
       auth_credentials_post = TentD::Model::Post.where(:id => app.auth_credentials_post_id).first
 
-      settings[:status_config] = {
-        :current_user => {
-          :credentials => TentD::Model::Credentials.slice_credentials(auth_credentials_post),
-          :entity => settings[:entity],
-          :server_meta_post => settings[:user].meta_post.as_json
-        }
-      }
+      settings[:status_config] = config_json(app_post, auth_credentials_post)
     end
 
     def setup_admin
@@ -110,12 +104,20 @@ module TentD
       end
 
       auth_credentials_post = TentD::Model::Post.where(:id => app.auth_credentials_post_id).first
+      settings[:admin_config] = config_json(app_post, auth_credentials_post)
+    end
 
-      settings[:admin_config] = {
-        :current_user => {
-          :credentials => TentD::Model::Credentials.slice_credentials(auth_credentials_post),
-          :entity => settings[:entity],
-          :server_meta_post => settings[:user].meta_post.as_json
+    def config_json(app_post, auth_credentials_post)
+      meta = settings[:user].meta_post.as_json
+      if digest = meta[:attachments].to_a.map { |a| a['digest'] }.first
+        meta[:content]['profile'] ||= {}
+        meta[:content]['profile']['avatar_digest'] = digest
+      end
+      {
+        :credentials => TentD::Model::Credentials.slice_credentials(auth_credentials_post),
+        :meta => meta[:content],
+        :app => {
+          :id => app_post.public_id
         }
       }
     end

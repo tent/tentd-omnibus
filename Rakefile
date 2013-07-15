@@ -2,6 +2,27 @@ require 'bundler/setup'
 require 'bundler/gem_tasks'
 require 'tentd/tasks/db'
 
+namespace :common do
+  namespace :icing do
+    require 'icing/tasks/assets'
+
+    task :configure do
+      public_dir = File.expand_path(File.join(File.dirname(__FILE__), 'public'))
+      Icing::Compiler.assets_dir = File.join(public_dir, 'assets')
+    end
+  end
+
+  namespace :marbles do
+    require 'marbles-js/tasks/assets'
+
+    task :configure do
+      public_dir = File.expand_path(File.join(File.dirname(__FILE__), 'public'))
+      MarblesJS::Compiler.assets_dir = File.join(public_dir, 'assets')
+      MarblesJS::Compiler.compile_vendor = true
+    end
+  end
+end
+
 namespace :status do
   task :configure do
     require 'tent-status/compiler'
@@ -11,6 +32,7 @@ namespace :status do
     TentStatus::Compiler.layout_dir = public_dir
     TentStatus::Compiler.layout_path = File.join(TentStatus::Compiler.layout_dir, 'status.html')
 
+    ENV['APP_ASSET_MANIFEST'] ||= File.expand_path("../public/assets/manifest.json", __FILE__)
     TentStatus::Compiler.configure_app(
       :url => "#{ENV['URL']}/status",
       :path_prefix => '/status',
@@ -23,6 +45,13 @@ namespace :status do
 
   require 'tent-status/tasks/assets'
   require 'tent-status/tasks/layout'
+
+  task :compile => [
+    "status:configure",
+    "status:assets:gzip",
+    "status:layout:gzip"
+  ] do
+  end
 end
 
 namespace :admin do
@@ -35,6 +64,7 @@ namespace :admin do
     TentAdmin::Compiler.layout_dir = public_dir
     TentAdmin::Compiler.layout_path = File.join(TentAdmin::Compiler.layout_dir, 'admin.html')
 
+    ENV['APP_ASSET_MANIFEST'] ||= File.expand_path("../public/assets/manifest.json", __FILE__)
     TentAdmin::Compiler.configure_app(
       :url => "#{ENV['URL']}/admin",
       :path_prefix => '/admin',
@@ -48,18 +78,22 @@ namespace :admin do
 
   require 'tent-admin/tasks/assets'
   require 'tent-admin/tasks/layout'
+
+  task :compile => [
+    "admin:configure",
+    "admin:assets:gzip",
+    "common:icing:configure",
+    "common:icing:assets:precompile",
+    "common:marbles:configure",
+    "common:marbles:assets:precompile",
+    "admin:layout:gzip"
+  ] do
+  end
 end
 
 namespace :assets do
   desc "Precompile Status and Admin apps"
-  task :precompile => [
-    "status:configure",
-    "status:assets:precompile",
-    "status:layout:compile",
-    "admin:configure",
-    "admin:assets:precompile",
-    "admin:layout:compile"
-  ] do
+  task :precompile => [ "admin:compile", "status:compile" ] do
   end
 end
 
