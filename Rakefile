@@ -32,7 +32,6 @@ namespace :status do
     TentStatus::Compiler.layout_dir = public_dir
     TentStatus::Compiler.layout_path = File.join(TentStatus::Compiler.layout_dir, 'status.html')
 
-    ENV['APP_ASSET_MANIFEST'] ||= File.expand_path("../public/assets/manifest.json", __FILE__)
     TentStatus::Compiler.configure_app(
       :url => "#{ENV['URL']}/status",
       :path_prefix => '/status',
@@ -64,7 +63,6 @@ namespace :admin do
     TentAdmin::Compiler.layout_dir = public_dir
     TentAdmin::Compiler.layout_path = File.join(TentAdmin::Compiler.layout_dir, 'admin.html')
 
-    ENV['APP_ASSET_MANIFEST'] ||= File.expand_path("../public/assets/manifest.json", __FILE__)
     TentAdmin::Compiler.configure_app(
       :url => "#{ENV['URL']}/admin",
       :path_prefix => '/admin',
