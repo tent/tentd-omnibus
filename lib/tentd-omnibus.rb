@@ -111,14 +111,9 @@ module TentD
     end
 
     def config_json(app_post, auth_credentials_post)
-      meta = settings[:user].meta_post.as_json
-      if digest = meta[:attachments].to_a.map { |a| a['digest'] }.first
-        meta[:content]['profile'] ||= {}
-        meta[:content]['profile']['avatar_digest'] = digest
-      end
       {
         :credentials => TentD::Model::Credentials.slice_credentials(auth_credentials_post),
-        :meta => meta[:content],
+        :meta => settings[:user].meta_post.as_json,
         :app => {
           :id => app_post.public_id
         }
