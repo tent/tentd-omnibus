@@ -107,7 +107,14 @@ module TentD
       auth_credentials_post = TentD::Model::Post.where(:id => app.auth_credentials_post_id).first
       app_post ||= TentD::Model::Post.where(:id => app.post_id).first
 
-      settings[:admin_config] = config_json(app_post, auth_credentials_post)
+      settings[:admin_config] = config_json(app_post, auth_credentials_post).merge(
+        :protected_apps => [app_post.public_id, status_app_post.public_id]
+      )
+    end
+
+    def status_app_post
+      app = TentD::Model::App.where(:id => settings[:user].status_app_id).first
+      TentD::Model::Post.where(:id => app.post_id).first
     end
 
     def config_json(app_post, auth_credentials_post)
