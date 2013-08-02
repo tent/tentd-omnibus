@@ -13,7 +13,7 @@ module TentD
 
     def settings
       @settings ||= {
-        :entity => ENV['TENT_ENTITY'] || ENV['URL'] ? "#{ENV['URL'].to_s.sub(%r{/\Z}, '')}/tent" : nil,
+        :entity => ENV['TENT_ENTITY'] || (ENV['URL'] ? "#{ENV['URL'].to_s.sub(%r{/\Z}, '')}/tent" : nil),
         :display_url => ENV['DISPLAY_URL'] || "https://github.com/tent/tentd-omnibus",
         :url => ENV['URL']
       }
