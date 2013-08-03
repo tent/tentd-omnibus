@@ -16,6 +16,7 @@ SESSION_SECRET | Required | Random string for session cookie secret
 DATABASE_URL   | Required | Postgres database url
 REDIS_URL      | Required | Redis url
 TENT_ENTITY    | Optional | Defaults to the mounted path of tentd
+API_ROOT       | Optional | Defaults to TENT_ENTITY, must point to where tentd is mounted.
 
 **tentd**
 
