@@ -1,7 +1,7 @@
 # TentD Omnibus
 
 Bundled collection of [status](https://github.com/tent/tent-status)
-and [admin](https://github.com/tent/tent-admin) apps and the [0.3 reference server](https://github.com/tent/tentd/tree/0.3).
+and [admin](https://github.com/tent/tent-admin) apps and the [0.3 reference server](https://github.com/tent/tentd).
 
 ## Setup
 
