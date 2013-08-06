@@ -20,7 +20,7 @@ API_ROOT       | Optional | Defaults to TENT_ENTITY, must point to where tentd i
 
 **tentd**
 
-See the [tentd README](https://github.com/tent/tentd/blob/0.3/README.md) for details and additional configuration options.
+See the [tentd README](https://github.com/tent/tentd/blob/master/README.md) for details and additional configuration options.
 
 **status**
 
