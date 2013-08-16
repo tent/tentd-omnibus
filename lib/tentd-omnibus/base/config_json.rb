@@ -10,13 +10,15 @@ module TentD
         super
 
         key = :"#{@options[:app_name]}_config"
-        config = TentD::Omnibus.settings[key]
+        @config = TentD::Omnibus.settings[key]
 
-        unless config
+        unless @config
           raise ConfigNotFoundError.new("Config for #{@options[:app_name]} is not set")
         end
+      end
 
-        @config_json = Yajl::Encoder.encode(config)
+      def config_json
+        Yajl::Encoder.encode(@config.call)
       end
 
       def action(env)
@@ -26,7 +28,7 @@ module TentD
           env['response.headers'].merge!(
             'Content-Type' => 'application/json'
           )
-          env['response.body'] = @config_json
+          env['response.body'] = config_json
         else
           env['response.status'] = 404
         end

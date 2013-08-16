@@ -12,7 +12,7 @@ module TentD
       get '/config.json' do |b|
         b.use ContentSecurityPolicy
         b.use AccessControl
-        b.use CacheControl
+        b.use CacheControl, :cache_control => 'no-cache'
         b.use ConfigJson, :app_name => :status
       end
 

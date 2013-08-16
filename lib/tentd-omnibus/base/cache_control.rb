@@ -4,7 +4,7 @@ module TentD
       def action(env)
         env['response.headers'] ||= {}
         env['response.headers'].merge!(
-          'Cache-Control' => cache_control(env),
+          'Cache-Control' => @options[:cache_control] || cache_control(env),
           'Vary' => 'Cookie'
         )
         env
