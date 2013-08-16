@@ -33,6 +33,7 @@ def configure_tent_admin
   return if @tent_admin_configured
   @tent_admin_configured = true
 
+  require 'tent-status'
   require 'tent-admin/compiler'
 
   public_dir = File.expand_path(File.join(File.dirname(__FILE__), 'public'))
@@ -58,34 +59,19 @@ def configure_tent_admin
 end
 
 namespace :status do
-  task :configure do
+  task :compile do
     configure_tent_status
-  end
-
-  require 'tent-status/tasks/assets'
-  require 'tent-status/tasks/layout'
-
-  task :compile => [
-    "status:configure",
-    "status:assets:gzip",
-    "status:layout:gzip"
-  ] do
+    TentStatus::Compiler.gzip_assets
+    TentStatus::Compiler.gzip_layout
   end
 end
 
 namespace :admin do
-  task :configure do
+  task :compile do
     configure_tent_admin
-  end
 
-  require 'tent-admin/tasks/assets'
-  require 'tent-admin/tasks/layout'
-
-  task :compile => [
-    "admin:configure",
-    "admin:assets:gzip",
-    "admin:layout:gzip"
-  ] do
+    TentAdmin::Compiler.gzip_assets
+    TentAdmin::Compiler.gzip_layout
   end
 end
 
