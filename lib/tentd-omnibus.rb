@@ -164,6 +164,8 @@ module TentD
         app_post.content['types'],
         app_post.content['scopes']
       )
+      TentD::Model::AppAuth.update_app_post_refs(auth_post, app_post)
+      auth_post
     end
   end
 end
