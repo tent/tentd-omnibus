@@ -2,44 +2,58 @@ require 'bundler/setup'
 require 'bundler/gem_tasks'
 require 'tentd/tasks/db'
 
-namespace :common do
-  namespace :icing do
-    require 'icing/tasks/assets'
+def configure_tent_status
+  return if @tent_status_configured
+  @tent_status_configured = true
 
-    task :configure do
-      public_dir = File.expand_path(File.join(File.dirname(__FILE__), 'public'))
-      Icing::Compiler.assets_dir = File.join(public_dir, 'assets')
-    end
-  end
+  require 'tent-status/compiler'
 
-  namespace :marbles do
-    require 'marbles-js/tasks/assets'
+  public_dir = File.expand_path(File.join(File.dirname(__FILE__), 'public'))
+  TentStatus::Compiler.assets_dir = File.join(public_dir, 'assets')
+  TentStatus::Compiler.layout_dir = public_dir
+  TentStatus::Compiler.layout_path = File.join(TentStatus::Compiler.layout_dir, 'status.html')
 
-    task :configure do
-      public_dir = File.expand_path(File.join(File.dirname(__FILE__), 'public'))
-      MarblesJS::Compiler.assets_dir = File.join(public_dir, 'assets')
-      MarblesJS::Compiler.compile_vendor = true
-    end
-  end
+  TentStatus::Compiler.compile_icing = true
+  TentStatus::Compiler.compile_marbles = true
+
+  TentStatus::Compiler.configure_app(
+    :url => "#{ENV['URL']}/status",
+    :path_prefix => '/status',
+    :asset_root => '/assets',
+    :json_config_url => "#{ENV['URL']}/status/config.json",
+    :admin_url => "/admin",
+    :signout_url => "/signout"
+  )
+end
+
+def configure_tent_admin
+  return if @tent_admin_configured
+  @tent_admin_configured = true
+
+  require 'tent-admin/compiler'
+
+  public_dir = File.expand_path(File.join(File.dirname(__FILE__), 'public'))
+  TentAdmin::Compiler.assets_dir = File.join(public_dir, 'assets')
+  TentAdmin::Compiler.layout_dir = public_dir
+  TentAdmin::Compiler.layout_path = File.join(TentAdmin::Compiler.layout_dir, 'admin.html')
+
+  TentAdmin::Compiler.compile_icing = true
+  TentAdmin::Compiler.compile_marbles = true
+
+  TentAdmin::Compiler.configure_app(
+    :url => "#{ENV['URL']}/admin",
+    :path_prefix => '/admin',
+    :asset_root => '/assets',
+    :json_config_url => "#{ENV['URL']}/admin/config.json",
+    :status_url => "/status",
+    :search_url => TentStatus.settings[:search_enabled] ? "/status/search" : nil,
+    :signout_url => "/signout"
+  )
 end
 
 namespace :status do
   task :configure do
-    require 'tent-status/compiler'
-
-    public_dir = File.expand_path(File.join(File.dirname(__FILE__), 'public'))
-    TentStatus::Compiler.assets_dir = File.join(public_dir, 'assets')
-    TentStatus::Compiler.layout_dir = public_dir
-    TentStatus::Compiler.layout_path = File.join(TentStatus::Compiler.layout_dir, 'status.html')
-
-    TentStatus::Compiler.configure_app(
-      :url => "#{ENV['URL']}/status",
-      :path_prefix => '/status',
-      :asset_root => '/assets',
-      :json_config_url => "#{ENV['URL']}/status/config.json",
-      :admin_url => "/admin",
-      :signout_url => "/signout"
-    )
+    configure_tent_status
   end
 
   require 'tent-status/tasks/assets'
@@ -55,23 +69,7 @@ end
 
 namespace :admin do
   task :configure do
-    require 'tent-admin/compiler'
-    require 'tent-status'
-
-    public_dir = File.expand_path(File.join(File.dirname(__FILE__), 'public'))
-    TentAdmin::Compiler.assets_dir = File.join(public_dir, 'assets')
-    TentAdmin::Compiler.layout_dir = public_dir
-    TentAdmin::Compiler.layout_path = File.join(TentAdmin::Compiler.layout_dir, 'admin.html')
-
-    TentAdmin::Compiler.configure_app(
-      :url => "#{ENV['URL']}/admin",
-      :path_prefix => '/admin',
-      :asset_root => '/assets',
-      :json_config_url => "#{ENV['URL']}/admin/config.json",
-      :status_url => "/status",
-      :search_url => TentStatus.settings[:search_enabled] ? "/status/search" : nil,
-      :signout_url => "/signout"
-    )
+    configure_tent_admin
   end
 
   require 'tent-admin/tasks/assets'
@@ -80,10 +78,6 @@ namespace :admin do
   task :compile => [
     "admin:configure",
     "admin:assets:gzip",
-    "common:icing:configure",
-    "common:icing:assets:precompile",
-    "common:marbles:configure",
-    "common:marbles:assets:precompile",
     "admin:layout:gzip"
   ] do
   end
