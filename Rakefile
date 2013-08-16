@@ -24,6 +24,9 @@ def configure_tent_status
     :admin_url => "/admin",
     :signout_url => "/signout"
   )
+
+  TentStatus::Compiler.configure_sprockets
+  TentStatus::Compiler.sprockets_environment.cache = Sprockets::Cache::FileStore.new("./.tmp")
 end
 
 def configure_tent_admin
@@ -49,6 +52,9 @@ def configure_tent_admin
     :search_url => TentStatus.settings[:search_enabled] ? "/status/search" : nil,
     :signout_url => "/signout"
   )
+
+  TentAdmin::Compiler.configure_sprockets
+  TentAdmin::Compiler.sprockets_environment.cache = Sprockets::Cache::FileStore.new("./.tmp")
 end
 
 namespace :status do
