@@ -96,7 +96,7 @@ GIT
 
 GIT
   remote: git://github.com/tent/tent-admin.git
-  revision: a64b4bb5adf3b76820d0c8429cb6ae4d15010dd1
+  revision: cd320d17b76857cfb59533acf760d04f7e7d2493
   branch: master
   specs:
     tent-admin (0.0.1)
