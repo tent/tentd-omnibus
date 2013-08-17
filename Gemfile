@@ -32,6 +32,9 @@ gem 'sprockets', :git => 'git://github.com/jvaill/sprockets.git', :branch => 'ma
 
 gem 'marbles-js', :git => 'git://github.com/jvatic/marbles-js.git', :branch => 'master'
 
+gem 'dalli'
+gem 'memcachier'
+
 group :assets do
   gem 'uglifier'
   gem 'sprockets-rainpress'

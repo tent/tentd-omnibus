@@ -2,6 +2,10 @@ require 'bundler/setup'
 require 'bundler/gem_tasks'
 require 'tentd/tasks/db'
 
+if ENV['MEMCACHE_SERVERS']
+  require 'sprockets_memcached'
+end
+
 def configure_tent_status
   return if @tent_status_configured
   @tent_status_configured = true
@@ -26,7 +30,12 @@ def configure_tent_status
   )
 
   TentStatus::Compiler.configure_sprockets
-  TentStatus::Compiler.sprockets_environment.cache = Sprockets::Cache::FileStore.new("./.tmp")
+
+  if defined?(Sprockets::Cache::MemcacheStore)
+    TentStatus::Compiler.sprockets_environment.cache = Sprockets::Cache::MemcacheStore.new
+  else
+    TentStatus::Compiler.sprockets_environment.cache = Sprockets::Cache::FileStore.new("./.tmp")
+  end
 end
 
 def configure_tent_admin
@@ -55,7 +64,12 @@ def configure_tent_admin
   )
 
   TentAdmin::Compiler.configure_sprockets
-  TentAdmin::Compiler.sprockets_environment.cache = Sprockets::Cache::FileStore.new("./.tmp")
+
+  if defined?(Sprockets::Cache::MemcacheStore)
+    TentAdmin::Compiler.sprockets_environment.cache = Sprockets::Cache::MemcacheStore.new
+  else
+    TentAdmin::Compiler.sprockets_environment.cache = Sprockets::Cache::FileStore.new("./.tmp")
+  end
 end
 
 namespace :status do
