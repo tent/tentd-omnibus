@@ -1,5 +1,4 @@
 require 'dalli'
-require 'memcachier'
 
 module Sprockets
   module Cache

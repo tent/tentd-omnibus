@@ -2,6 +2,7 @@ require 'bundler/setup'
 require 'bundler/gem_tasks'
 require 'tentd/tasks/db'
 
+require 'memcachier'
 if ENV['MEMCACHE_SERVERS']
   require 'sprockets_memcached'
 end
