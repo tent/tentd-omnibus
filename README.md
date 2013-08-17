@@ -114,6 +114,7 @@ heroku config:add\
  USERNAME=admin\
  URL=$(heroku info -s | grep web_url | cut -f2 -d"=" | sed 's/http/https/' | sed 's/\/$//')\
  REDIS_URL=$(heroku config:get REDISCLOUD_URL | tr -d '\r\n')
+ RUN_SIDEKIQ=true
 git push heroku master
 heroku config:add PASSPHRASE=$(heroku run bundle exec rake encrypt_passphrase[passphrase] | tail -1 | tr -d '\r\n')
 heroku run bundle exec rake db:migrate
