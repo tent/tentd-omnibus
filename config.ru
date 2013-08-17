@@ -5,7 +5,6 @@ require 'bundler/setup'
 require 'tentd-omnibus'
 
 TentD::Omnibus.setup!
-
 TentD::Worker.configure_client
 
 session_cookie_options = {
