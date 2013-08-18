@@ -8,16 +8,16 @@ require 'tentd-omnibus'
 # Boot Sidekiq
 
 if ENV['RUN_SIDEKIQ'] != 'false'
-  # run sidekiq server
-  require 'tentd/worker'
-  sidekiq_pid = TentD::Worker.run_server
-
-  puts "Sidekiq server running (pid: #{sidekiq_pid})"
+  sidekiq_pid = fork do
+    exec(*%w(bundle exec sidekiq -r ./sidekiq.rb))
+  end
 
   at_exit do
     puts "Killing sidekiq server (pid: #{sidekiq_pid})"
     Process.kill("INT", sidekiq_pid)
   end
+else
+  sidekiq_pid = nil
 end
 
 ##
