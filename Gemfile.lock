@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: git://github.com/tent/api-validator.git
-  revision: 900c205361d33acaf4ade3a7b09e4fb3da5a1fd5
+  revision: c2ff9da93e72ca9af27b54a050319bab99dec052
   branch: master
   specs:
     api-validator (0.0.1)
