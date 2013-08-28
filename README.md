@@ -106,17 +106,17 @@ See the [Getting Started with Heroku](https://devcenter.heroku.com/articles/quic
 Assuming you have heroku configured, just copy and paste the following:
 
 ```shell
-heroku create --addons heroku-postgresql:dev,rediscloud:20,memcachier:dev &&\
-heroku pg:promote $(heroku pg | head -1 | cut -f2 -d" ") &&\
-heroku labs:enable user-env-compile &&\
-git push heroku master &&\
-heroku config:add\
- SESSION_SECRET=$(openssl rand -hex 16 | tr -d '\r\n')\
- USERNAME=admin\
- URL=$(heroku info -s | grep web_url | cut -f2 -d"=" | sed 's/http/https/' | sed 's/\/$//')\
- REDIS_URL=$(heroku config:get REDISCLOUD_URL | tr -d '\r\n')\
- RUN_SIDEKIQ=true &&\
-heroku config:add PASSPHRASE=$(heroku run bundle exec rake encrypt_passphrase\[passphrase\] | tail -1 | tr -d '\r\n') &&\
-heroku run bundle exec rake db:migrate &&\
+heroku create --addons heroku-postgresql:dev,rediscloud:20,memcachier:dev
+heroku pg:promote $(heroku pg | head -1 | cut -f2 -d" ")
+heroku labs:enable user-env-compile
+git push heroku master
+heroku config:add \
+ SESSION_SECRET=$(openssl rand -hex 16 | tr -d '\r\n') \
+ USERNAME=admin \
+ URL=$(heroku info -s | grep web_url | cut -f2 -d"=" | sed 's/http/https/' | sed 's/\/$//') \
+ REDIS_URL=$(heroku config:get REDISCLOUD_URL | tr -d '\r\n') \
+ RUN_SIDEKIQ=true
+heroku config:add PASSPHRASE=$(heroku run bundle exec rake encrypt_passphrase\[passphrase\] | tail -1 | tr -d '\r\n')
+heroku run bundle exec rake db:migrate
 heroku open
 ```
