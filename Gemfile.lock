@@ -146,7 +146,7 @@ GIT
 
 GIT
   remote: git://github.com/tent/tent-status.git
-  revision: 031d6bea35891659dfbbb93f4d0e9d7bdd751a4c
+  revision: 9fade15278a204d8af835769b9c069d067bce9e8
   branch: master
   specs:
     tent-status (0.2.0)
