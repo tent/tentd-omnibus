@@ -116,7 +116,7 @@ GIT
 
 GIT
   remote: git://github.com/tent/tent-canonical-json-ruby.git
-  revision: a68d06a6c0a2c8f6b99d14f071fe444496cc7556
+  revision: 2218198fd38eafc399ec5f50df28c8e9850613dd
   branch: master
   specs:
     tent-canonical-json (0.0.2)
