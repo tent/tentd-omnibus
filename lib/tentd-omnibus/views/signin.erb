@@ -12,7 +12,7 @@
   <body>
     <div id='main-container' class='container'>
       <div id='main' class='pull-left'>
-        <form class='form-horizontal' method='POST' action='/signin'>
+        <form class='form-horizontal' method='POST' action='<%= TentD::Omnibus.settings[:url] %>/signin'>
           <input type='hidden' name='_csrf' value='<%= csrf_token %>' />
 
           <% if flash_error %>
