@@ -10,7 +10,7 @@ module TentD
         else
           env['authenticated'] = false
           env['rack.session']['redirect_url'] = env['REQUEST_URI']
-          return [302, { "Location" => "/signin" }, []]
+          return [302, { "Location" => "#{TentD::Omnibus.settings[:url]}/signin" }, []]
         end
 
         env

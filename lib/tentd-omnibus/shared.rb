@@ -54,7 +54,7 @@ module TentD
           if authenticate(params[:username], params[:passphrase])
             env['rack.session']['authenticated'] = true
 
-            return [301, { 'Location' => env['rack.session']['redirect_url'] || '/' }, []]
+            return [301, { 'Location' => env['rack.session']['redirect_url'] || TentD::Omnibus.settings[:url] }, []]
           else
             env['rack.session']['authenticated'] = false
             env['flash_error'] = "Incorrect username or passphrase"
