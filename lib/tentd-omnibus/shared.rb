@@ -72,7 +72,7 @@ module TentD
 
       class Redirect < Rack::Putty::Middleware
         def action(env)
-          [302, { "Location" => "/#{@options[:app]}" }, []]
+          [302, { "Location" => "#{TentD::Omnibus.settings[:url]}/#{@options[:app]}" }, []]
         end
       end
 
