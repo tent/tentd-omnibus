@@ -31,7 +31,7 @@ module TentD
 
           return unless compiled_name
 
-          "/assets/#{compiled_name}"
+          "#{TentD::Omnibus.settings[:url]}/assets/#{compiled_name}"
         end
 
         def csrf_token
