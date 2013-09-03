@@ -1,7 +1,9 @@
-# TentD Omnibus
+# tentd Omnibus
 
 Bundled collection of [status](https://github.com/tent/tent-status)
 and [admin](https://github.com/tent/tent-admin) apps and the [0.3 reference server](https://github.com/tent/tentd).
+
+tentd is an alpha implementation of a Tent Protocol server. It currently contains **broken code, many bugs, and security flaws**. The code should only be used to experiment with how Tent works. Under no circumstances should the code in its current form be used for data that is supposed to be private.
 
 ## Setup
 
