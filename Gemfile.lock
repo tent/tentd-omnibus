@@ -167,7 +167,7 @@ GIT
 
 GIT
   remote: git://github.com/tent/tentd.git
-  revision: 6bd4716b70f6d024358e77e7d9a1373df071f035
+  revision: ba8fe17682ac8dcdfccc164f88e35b8e53eaa678
   branch: master
   specs:
     tentd (0.2.0)
