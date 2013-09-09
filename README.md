@@ -95,7 +95,7 @@ bundle
 bundle exec rake assets:precompile
 createdb tentd
 bundle exec rake db:migrate
-bundle exec unicorn -p 8080
+bundle exec ruby ./runner.rb
 ```
 
 will start an [instance of tentd](http://localhost:8080/tent) with
