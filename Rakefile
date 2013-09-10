@@ -7,6 +7,10 @@ if ENV['MEMCACHE_SERVERS']
   require 'sprockets_memcached'
 end
 
+def path_prefix(url)
+  URI(url).path.sub(%r{/\Z}, '')
+end
+
 def configure_tent_status
   return if @tent_status_configured
   @tent_status_configured = true
@@ -21,13 +25,15 @@ def configure_tent_status
   TentStatus::Compiler.compile_icing = true
   TentStatus::Compiler.compile_marbles = true
 
+  prefix = path_prefix(ENV['URL'])
+
   TentStatus::Compiler.configure_app(
     :url => "#{ENV['URL']}/status",
-    :path_prefix => '/status',
+    :path_prefix => "#{prefix}/status",
     :asset_root => ENV['ASSET_ROOT'] || '/assets',
     :json_config_url => "#{ENV['URL']}/status/config.json",
-    :admin_url => "/admin",
-    :signout_url => "/signout"
+    :admin_url => "#{prefix}/admin",
+    :signout_url => "#{prefix}/signout"
   )
 
   TentStatus::Compiler.configure_sprockets
@@ -54,14 +60,16 @@ def configure_tent_admin
   TentAdmin::Compiler.compile_icing = true
   TentAdmin::Compiler.compile_marbles = true
 
+  prefix = path_prefix(ENV['URL'])
+
   TentAdmin::Compiler.configure_app(
     :url => "#{ENV['URL']}/admin",
-    :path_prefix => '/admin',
+    :path_prefix => "#{prefix}/admin",
     :asset_root => ENV['ASSET_ROOT'] || '/assets',
     :json_config_url => "#{ENV['URL']}/admin/config.json",
-    :status_url => "/status",
+    :status_url => "#{prefix}/status",
     :search_url => TentStatus.settings[:search_enabled] ? "/status/search" : nil,
-    :signout_url => "/signout"
+    :signout_url => "#{prefix}/signout"
   )
 
   TentAdmin::Compiler.configure_sprockets
