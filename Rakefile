@@ -24,7 +24,7 @@ def configure_tent_status
   TentStatus::Compiler.configure_app(
     :url => "#{ENV['URL']}/status",
     :path_prefix => '/status',
-    :asset_root => '/assets',
+    :asset_root => ENV['ASSET_ROOT'] || '/assets',
     :json_config_url => "#{ENV['URL']}/status/config.json",
     :admin_url => "/admin",
     :signout_url => "/signout"
@@ -57,7 +57,7 @@ def configure_tent_admin
   TentAdmin::Compiler.configure_app(
     :url => "#{ENV['URL']}/admin",
     :path_prefix => '/admin',
-    :asset_root => '/assets',
+    :asset_root => ENV['ASSET_ROOT'] || '/assets',
     :json_config_url => "#{ENV['URL']}/admin/config.json",
     :status_url => "/status",
     :search_url => TentStatus.settings[:search_enabled] ? "/status/search" : nil,
