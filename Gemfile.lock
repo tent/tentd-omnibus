@@ -37,7 +37,7 @@ GIT
 
 GIT
   remote: git://github.com/tent/hawk-ruby.git
-  revision: 2e68e397f3853787e7bc6f075d9afee71cef3d2d
+  revision: 4052d9ff05538b1a772c9890f3b93e04a3121070
   branch: master
   specs:
     hawk-auth (0.2.1)
