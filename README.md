@@ -20,6 +20,7 @@ REDIS_URL      | Required | Redis url
 TENT_ENTITY    | Optional | Defaults to the mounted path of tentd
 API_ROOT       | Optional | Defaults to TENT_ENTITY, must point to where tentd is mounted.
 ASSET_ROOT     | Optional | Defaults to `/assets`.
+PATH_PREFIX    | Optional | Mounts all components with the prefix.
 
 **tentd**
 

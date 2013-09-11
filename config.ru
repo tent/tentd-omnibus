@@ -18,28 +18,28 @@ if ENV['RACK_ENV'] == 'production'
   use Rack::SslEnforcer
 end
 
-map '/' do
+map "#{ENV['PATH_PREFIX']}/" do
   use Rack::Session::Cookie, session_cookie_options
   run TentD::Omnibus::Shared.new
 end
 
-map '/tent/oauth/authorize' do
+map "#{ENV['PATH_PREFIX']}/tent/oauth/authorize" do
   run lambda { |env|
-    [301, { "Location" => "/admin/oauth?#{env['QUERY_STRING']}" }, []]
+    [301, { "Location" => "#{ENV['PATH_PREFIX']}/admin/oauth?#{env['QUERY_STRING']}" }, []]
   }
 end
 
-map '/tent' do
+map "#{ENV['PATH_PREFIX']}/tent" do
   run TentD::API.new
 end
 
-map '/status' do
+map "#{ENV['PATH_PREFIX']}/status" do
   use Rack::Session::Cookie, session_cookie_options
   use TentD::Omnibus::Authentication
   run TentD::Omnibus::Status.new
 end
 
-map '/admin' do
+map "#{ENV['PATH_PREFIX']}/admin" do
   use Rack::Session::Cookie, session_cookie_options
   use TentD::Omnibus::Authentication
   run TentD::Omnibus::Admin.new
