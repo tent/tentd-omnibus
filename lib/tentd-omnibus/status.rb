@@ -16,6 +16,13 @@ module TentD
         b.use ConfigJson, :app_name => :status
       end
 
+      if File.exists?(RenderStatic.static_path(:status_search))
+        get '/search' do |b|
+          b.use ContentSecurityPolicy
+          b.use RenderStatic, :view => :status_search
+        end
+      end
+
       get '*' do |b|
         b.use ContentSecurityPolicy
         b.use RenderStatic, :view => :status

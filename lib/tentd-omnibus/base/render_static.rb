@@ -2,11 +2,15 @@ module TentD
   module Omnibus
     class RenderStatic < Rack::Putty::Middleware
 
+      def self.static_path(view)
+        # public/{view}.html
+        File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'public', "#{view}.html"))
+      end
+
       def initialize(app, options = {})
         super
 
-        # public/{view}.html
-        @path = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'public', "#{@options[:view]}.html"))
+        @path = self.class.static_path(@options[:view])
         @exists = File.exists?(@path)
 
         if @exists
