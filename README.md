@@ -110,7 +110,7 @@ See the [Getting Started with Heroku](https://devcenter.heroku.com/articles/quic
 Assuming you have heroku configured, just copy and paste the following:
 
 ```shell
-heroku create --addons heroku-postgresql:dev,rediscloud:20,memcachier:dev
+heroku create --addons heroku-postgresql:dev,rediscloud:25,memcachier:25
 heroku pg:promote $(heroku pg | head -1 | cut -f2 -d" ")
 heroku labs:enable user-env-compile
 heroku config:add \
